@@ -3,6 +3,8 @@ import streamlit as st
 
 with st.sidebar:
     openai_api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password")
+    if st.button("Clear Chat"):
+        st.session_state.messages = [{"role": "assistant", "content": "How can I help you?"}]
 
 if not openai_api_key:
     st.info("Please add your OpenAI API key to continue.")
